@@ -32,13 +32,15 @@ function YoutubeForm() {
         <div className="form-control">
           <label htmlFor="name">Name</label>
           <Field type="text" id="name" name="name" />
-          <ErrorMessage name="name" component={TextError}/>
+          <ErrorMessage name="name" component={TextError} />
         </div>
 
         <div className="form-control">
           <label htmlFor="email">E-mail</label>
           <Field type="email" id="email" name="email" />
-          <ErrorMessage name="email" />
+          <ErrorMessage name="email">
+            {(errorMsg) => <div className="error">{errorMsg}</div>}
+          </ErrorMessage>
         </div>
 
         <div className="form-control">
@@ -57,7 +59,7 @@ function YoutubeForm() {
           <Field name="address">
             {(props) => {
               const { feild, form, meta } = props;
-              console.log("Render props", props)
+              console.log("Render props", props);
               return (
                 <div>
                   <input type="text" id="address" {...feild} />
